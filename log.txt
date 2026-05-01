@@ -1,0 +1,137 @@
+[Session Start]
+
+User: I need to build a support triage agent for HackerRank Orchestrate hackathon. Can you explain the requirements?
+
+AI: Explained task: classify tickets, assess risk, retrieve from corpus, generate responses, output CSV.
+
+---
+
+User: Give me architecture for this system.
+
+AI: Suggested pipeline:
+Input → Preprocess → Classification → Risk Engine → Retrieval → Response → Output
+
+---
+
+User: Help me design folder structure.
+
+AI: Recommended modular structure:
+code/
+  main.py
+  agent.py
+  classifier.py
+  risk_engine.py
+  retriever.py
+  responder.py
+  utils.py
+
+---
+
+User: Write base version of code.
+
+AI: Generated initial implementation with classification, retrieval, and response generation.
+
+---
+
+User: Improve classification across HackerRank, Claude, Visa.
+
+AI: Added keyword-based classification for:
+- Payments / Transactions
+- Authentication
+- API / Model Usage
+- Assessments / Coding
+
+---
+
+User: Add risk detection and escalation.
+
+AI: Implemented risk_engine.py with high-risk keywords:
+fraud, unauthorized, stolen, charged, refund, hacked
+
+Escalation logic added:
+If risk high → status = escalated
+
+---
+
+User: Add retrieval from corpus.
+
+AI: Implemented TF-IDF retriever using sklearn:
+- Load .txt files from data/
+- Compute vectors
+- Return top-k similar documents
+
+---
+
+User: Ensure no hallucination.
+
+AI: Modified responder to use retrieved documents directly and avoid unsupported claims.
+
+---
+
+User: Fix output.csv format.
+
+AI: Updated output to include:
+issue, subject, company, response, product_area, status, request_type, justification
+
+---
+
+User: Improve justification.
+
+AI: Added explainable reasoning:
+- detected keywords
+- product mapping
+- risk level
+- escalation decision
+
+---
+
+User: Handle edge cases like invalid or malicious input.
+
+AI: Added:
+- invalid classification for unclear input
+- escalation for harmful/malicious requests
+
+---
+
+User: Generate outputs for sample tickets.
+
+AI: Provided responses covering:
+- fraud → escalated
+- billing → escalated
+- login → replied
+- API issues → replied
+- invalid → escalated
+
+---
+
+User: Improve responses for better quality.
+
+AI: Refined responses to be:
+- concise
+- safe
+- domain-aware
+- non-hallucinatory
+
+---
+
+User: Final check before submission.
+
+AI: Verified:
+- correct CSV format
+- valid labels
+- modular design
+- risk-aware escalation
+- corpus-based responses
+
+---
+
+User: Prepare submission files.
+
+AI:
+- zip code/ folder
+- upload output.csv
+- upload log.txt
+
+---
+
+[Session End]
