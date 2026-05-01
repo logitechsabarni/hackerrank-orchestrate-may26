@@ -7,17 +7,17 @@ def preprocess(text):
 
 
 def build_justification(text, product_area, risk, escalated):
-    reason = []
+    reasons = []
 
-    if any(word in text for word in ["fraud", "charged", "unauthorized"]):
-        reason.append("Detected financial risk keywords")
+    if any(x in text for x in ["fraud", "charged", "unauthorized"]):
+        reasons.append("Detected financial/security keywords")
 
-    reason.append(f"Mapped to product area: {product_area}")
-    reason.append(f"Risk level: {risk['level']}")
+    reasons.append(f"Product area: {product_area}")
+    reasons.append(f"Risk: {risk['level']}")
 
     if escalated:
-        reason.append("Escalation triggered due to high risk")
+        reasons.append("Escalated due to high risk")
     else:
-        reason.append("Safe to respond using retrieved documents")
+        reasons.append("Used corpus retrieval for response")
 
-    return " | ".join(reason)
+    return " | ".join(reasons)
