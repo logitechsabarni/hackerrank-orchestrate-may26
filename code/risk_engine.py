@@ -1,14 +1,14 @@
-HIGH_RISK_KEYWORDS = [
-    "fraud", "unauthorized", "stolen",
-    "charged", "refund", "hacked",
-    "suspicious", "unknown transaction"
+HIGH_RISK = [
+    "fraud", "unauthorized", "stolen", "hacked",
+    "charged", "refund", "suspicious",
+    "unknown transaction", "money deducted"
 ]
 
 def assess_risk(text):
     text = text.lower()
     score = 0
 
-    for word in HIGH_RISK_KEYWORDS:
+    for word in HIGH_RISK:
         if word in text:
             score += 2
 
